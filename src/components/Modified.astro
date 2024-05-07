@@ -1,0 +1,13 @@
+---
+import { displayDate } from '@/utils/date';
+
+export type Props = {
+  date: Date;
+};
+
+const { date: dateModified } = Astro.props;
+
+const displayText = displayDate(dateModified);
+---
+
+{displayText}

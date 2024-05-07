@@ -1,0 +1,16 @@
+name = "markdown-editor"
+pages_build_output_dir = "./dist"
+compatibility_date = "2024-04-08"
+compatibility_flags = ["nodejs_compat"]
+
+[[kv_namespaces]]
+binding = "USER_KV"
+id = "3e8c276afd89431385e782122ca2a9de"
+
+# [[durable_objects.bindings]]
+# name = "COLLABORATION_SERVICE"
+# class_name = "EditorCollaborationService"
+
+# [[migrations]]
+# tag = "v1"
+# new_classes = ["EditorCollaborationService"]

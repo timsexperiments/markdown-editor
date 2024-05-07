@@ -1,0 +1,26 @@
+---
+import { db, Document, eq } from 'astro:db';
+
+export const prerender = false;
+
+const { id } = Astro.params;
+
+if (!id || isNaN(+id)) {
+  return Astro.redirect('/');
+}
+
+const results = await db.select().from(Document).where(eq(Document.id, +id));
+if (!results.length) {
+  return Astro.redirect('/');
+}
+
+console.log(results);
+const { title, content, id: documentId } = results[0];
+---
+
+<h1>
+  {documentId} - {title}
+</h1>
+<p>
+  {content}
+</p>

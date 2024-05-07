@@ -1,0 +1,19 @@
+---
+import { db, Document } from 'astro:db';
+
+export const prerender = false;
+
+if (Astro.request.method.toUpperCase() !== 'POST') {
+  Astro.redirect('/');
+}
+
+const results = await db.insert(Document).values({
+  authorIp: Astro.clientAddress,
+  content: '',
+  title: 'untitled document',
+});
+
+const documentId = results.lastInsertRowid;
+
+return Astro.redirect(`documents/${documentId}`);
+---
